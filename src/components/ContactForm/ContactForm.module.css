@@ -1,0 +1,32 @@
+input {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    padding: 10px;
+    font-size: 17px;
+    border: 1px solid gray;
+    border-radius: 6px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
+
+
+button {
+  border-radius: 5px;
+  border: 1px solid #797a7b;
+  padding: 5px 10px;
+  background-color: #89898c;
+  margin-top: 5px;
+  margin-left: auto;
+  color: #222327;
+  font-weight: 700;
+  font-family: inherit;
+  cursor: pointer;
+
+  &:hover,
+  &:focus {
+    background-color: rgb(171, 186, 255);
+    color: inherit;
+  }
+}
