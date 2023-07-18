@@ -10,23 +10,20 @@ input {
     margin-bottom: 5px;
 }
 
+.btn {
+    height: 54px;
+    width: 50%;
+    font-size: 17px;
+    margin-left: 60px;
+    border-radius: 3px;
+    border: rgba(0, 0, 0, 0.3) 0px solid;
+    padding: 8px;
+    background: burlywood;
+    color: #fff;
+    cursor: pointer;
+    margin-top: 20px;
+}
 
-
-button {
-  border-radius: 5px;
-  border: 1px solid #797a7b;
-  padding: 5px 10px;
-  background-color: #89898c;
-  margin-top: 5px;
-  margin-left: auto;
-  color: #222327;
-  font-weight: 700;
-  font-family: inherit;
-  cursor: pointer;
-
-  &:hover,
-  &:focus {
-    background-color: rgb(171, 186, 255);
-    color: inherit;
-  }
+.btn:hover {
+  background: #387cb4;
 }

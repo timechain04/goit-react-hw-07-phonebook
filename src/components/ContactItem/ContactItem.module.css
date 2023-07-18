@@ -6,26 +6,19 @@
     margin-bottom: 5px;
     display: flex;
     justify-content: space-between;
-}
-
-.contact {
+  }
+  
+  .contact {
     margin-right: 30px;
-}
+  }
 
-.list {
-    background-color: whitesmoke;
-    display: flex;
-    justify-content: space-between;
-    flex-direction: column;
-    padding: 20px;
-    border-radius: 20px;
-}
-
-.btn {
+  .btn {
     margin-top: 10px;
     height: 30px;
+
     border-radius: 3px;
     border: rgba(0, 0, 0, 0.3) 0px solid;
+
     padding: 8px;
     background: burlywood;
     color: #fff;
@@ -34,5 +27,6 @@
 }
 
 .btn:hover {
-    background: red;
+  background: red;
 }
+  

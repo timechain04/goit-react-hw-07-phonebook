@@ -21,4 +21,4 @@ Filter.propTypes = {
   onChange: PropTypes.func.isRequired,
 };
 
-export default Filter;
+ export default Filter;
