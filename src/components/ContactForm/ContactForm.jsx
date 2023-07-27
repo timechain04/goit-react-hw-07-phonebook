@@ -4,8 +4,7 @@ import { nanoid } from 'nanoid';
 import { useSelector, useDispatch } from 'react-redux';
 import { addContact } from 'redux/contactSlice';
 
-
-export default function ContactForm() {
+export default function ContactForm({ onSubmit }) {
   const [name, setName] = useState('');
   const [number, setNumber] = useState('');
   const dispatch = useDispatch();
@@ -27,6 +26,7 @@ export default function ContactForm() {
 
   const handleSubmit = evt => {
     evt.preventDefault();
+
     const data = {
       id: nanoid(),
       name: name,
@@ -74,6 +74,7 @@ export default function ContactForm() {
           required
         />
       </label>
+
       <button type="submit" className={css.btn}>
         Add contact
       </button>

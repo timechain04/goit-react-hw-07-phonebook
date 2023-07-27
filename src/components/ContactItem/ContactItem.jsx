@@ -7,8 +7,9 @@ import { deleteContact } from 'redux/contactSlice';
 const ContactItem = ({ id, name, number }) => {
   const dispatch = useDispatch();
   const contactsDelete = id => dispatch(deleteContact(id));
+
   return (
-    <li className={css.item}>
+    <li id={id} className={css.item}>
       <p className={css.contact}>
         {name}............
         {number}
@@ -30,4 +31,4 @@ ContactItem.propTypes = {
   number: PropTypes.string.isRequired,
 };
 
- export default ContactItem;
+export default ContactItem;
