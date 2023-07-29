@@ -1,27 +1,45 @@
 import css from './ContactList.module.css';
 import ContactItem from '../ContactItem/ContactItem';
 import { useSelector } from 'react-redux';
-
-const getVisibleContacts = (items, filter) =>
-  items.filter(contact =>
-    contact.name.toLowerCase().includes(filter.toLowerCase())
-  );
+import { useGetContactsApiQuery } from 'redux/contactsApi';
 
 const ContactList = () => {
-  const items = useSelector(state => state.contacts.items);
-  const filter = useSelector(state => state.contacts.filter);
-  const contacts = getVisibleContacts(items, filter);
+  const { data, isLoading } = useGetContactsApiQuery();
+  const filter = useSelector(state => state.filter.value);
+  
+  const filteredContacts = () => {
+    const normalizeFilter = filter.toLowerCase();
+    return (
+      data &&
+      data.filter(contact =>
+        contact.name.toLowerCase().includes(normalizeFilter)
+      )
+    );
+  };
+
+  const filterEl = filteredContacts();
 
   return (
-    <ul className={css.list}>
-      {contacts.length ? (
-        contacts.map(({ id, name, number }) => (
-          <ContactItem key={id} id={id} name={name} number={number} />
-        ))
-      ) : (
-        <p className={css.text}>The contact list is empty</p>
-      )}
-    </ul>
+    <>
+      {isLoading && <p>Loading...</p>}
+      {
+        <ul className={css.list}>
+          {!isLoading && data && filterEl.length > 0 ? (
+            filterEl.map(({ id, name, phone }) => (
+              <ContactItem
+                key={id}
+                data={filterEl}
+                id={id}
+                name={name}
+                phone={phone}
+              />
+            ))
+          ) : (
+            <p className={css.text}>Contact list is empty!</p>
+          )}
+        </ul>
+      }
+    </>
   );
 };
 
