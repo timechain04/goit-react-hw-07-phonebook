@@ -27,19 +27,17 @@ export default function ContactForm() {
 
   const handleAddContact = async e => {
     e.preventDefault();
-    if (
-      data.find(contact => contact.name.toLowerCase() === name.toLowerCase())
-    ) {
+    if (data.find(contact => contact.name.toLowerCase() === name.toLowerCase())) 
+    {
       setName('');
       setPhone('');
-      return alert(`Number: ${name} is already in phonebook`);
+      return alert(`Number: ${name} is already in the phonebook`);
     }
-    if (name && phone) {
-      await addContact({ name: name, phone: phone }).unwrap();
-      setName('');
-      setPhone('');
-    }
+    await addContact({ name, phone }).unwrap();
+    setName('');
+    setPhone('');
   };
+  
 
   return (
     <form className={s.form} onSubmit={handleAddContact}>
