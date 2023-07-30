@@ -30,7 +30,7 @@ export const contactsApi = createApi({
         url: `contacts/${contactId}`,
         method: 'DELETE',
       }),
-      invalidatesTags: [{ type: 'Contacts', id: 'LIST' }],
+    invalidatesTags: [{ type: 'Contacts', id: 'LIST' }],
     }),
   }),
 });
