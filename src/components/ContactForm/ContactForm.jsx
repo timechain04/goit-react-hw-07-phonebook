@@ -20,7 +20,7 @@ export default function ContactForm() {
       case 'phone':
         setPhone(e.currentTarget.value);
         break;
-      default:
+       default:
         throw new Error('Error');
     }
   };
