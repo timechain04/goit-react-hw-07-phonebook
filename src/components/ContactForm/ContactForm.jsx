@@ -1,32 +1,32 @@
 import React, { useState } from 'react';
-import css from './ContactForm.module.css';
+import s from './ContactForm.module.css';
 import {
   useAddContactMutation,
   useGetContactsApiQuery,
-} from 'redux/contactsApi'
+} from 'redux/contactsApi';
 
 export default function ContactForm() {
   const [name, setName] = useState('');
   const [phone, setPhone] = useState('');
   const [addContact] = useAddContactMutation();
-  const { data } =  useGetContactsApiQuery();
+  const { data } = useGetContactsApiQuery();
 
-  const handleChange = evt => {
-    const prop = evt.currentTarget.name;
+  const handleChange = e => {
+    const prop = e.currentTarget.name;
     switch (prop) {
       case 'name':
-        setName(evt.currentTarget.value);
+        setName(e.currentTarget.value);
         break;
       case 'phone':
-        setPhone(evt.currentTarget.value);
+        setPhone(e.currentTarget.value);
         break;
       default:
         throw new Error('Error');
     }
   };
 
-  const handleAddContact = async evt => {
-    evt.preventDefault();
+  const handleAddContact = async e => {
+    e.preventDefault();
     if (
       data.find(contact => contact.name.toLowerCase() === name.toLowerCase())
     ) {
@@ -42,11 +42,11 @@ export default function ContactForm() {
   };
 
   return (
-    <form className={css.form} onSubmit={handleAddContact}>
+    <form className={s.form} onSubmit={handleAddContact}>
       <label>
         Name
         <input
-          className={css.inputName}
+          className={s.inputName}
           value={name}
           onChange={handleChange}
           type="text"
@@ -59,7 +59,7 @@ export default function ContactForm() {
       <label>
         Number
         <input
-          className={css.inputNumber}
+          className={s.inputNumber}
           value={phone}
           onChange={handleChange}
           type="tel"
@@ -69,7 +69,8 @@ export default function ContactForm() {
           required
         />
       </label>
-      <button type="submit" className={css.btn}>
+
+      <button type="submit" className={s.btn}>
         Add contact
       </button>
     </form>
